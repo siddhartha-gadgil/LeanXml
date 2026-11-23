@@ -2,3 +2,5 @@
 -- Import modules here that should be built as part of the library.
 import LeanXml.Basic
 import LeanXml.Parser
+import LeanXml.Namespace
+import LeanXml.Serializer

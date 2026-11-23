@@ -1,9 +1,13 @@
 name = "LeanXml"
 version = "0.1.0"
-defaultTargets = ["leanxml"]
+defaultTargets = ["leanxml", "LeanXmlTest"]
+testDriver = "LeanXmlTest"
 
 [[lean_lib]]
 name = "LeanXml"
+
+[[lean_lib]]
+name = "LeanXmlTest"
 
 [[lean_exe]]
 name = "leanxml"

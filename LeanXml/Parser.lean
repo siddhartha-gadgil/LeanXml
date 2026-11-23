@@ -459,7 +459,10 @@ mutual
 
       let z ← optional (Content.Character <$> CharData)
       pure #[y, z]
-    let xs := #[x] ++ xs.flatMap id |>.filterMap id
+    -- `CharData` matches the empty string: drop those, so `<a></a>` and `<a/>` read the same
+    let xs := (#[x] ++ xs.flatMap id |>.filterMap id).filter fun
+      | Content.Character "" => false
+      | _ => true
     let mut res := #[]
     for x in xs do
       if res.size > 0 then
